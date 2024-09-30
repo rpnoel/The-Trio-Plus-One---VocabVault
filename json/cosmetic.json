@@ -1,0 +1,9 @@
+[
+    {
+        "type":"HAT", 
+        "cost": 2
+    }, {
+        "type":"AVATAR", 
+        "cost": 1
+    }
+]
