@@ -1,9 +1,9 @@
 [
     {
-        "cosmeticList":"SKIP", 
-        "powerUpList": 4
+        "cosmeticList":["HAT"], 
+        "powerUpList": ["NARROW_DOWN", "SKIP"]
     }, {
-        "cosmeticList":"SKIP", 
-        "powerUpList": 4
+        "cosmeticList":["AVATAR"], 
+        "powerUpList": ["DOUBLE_POINTS", "HINT", "RETRY"]
     }
 ]

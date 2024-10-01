@@ -1,0 +1,11 @@
+[
+    {
+        "questionText": "The sky is ____",
+        "choices":["red", "blue", "green"],
+        "userInput": "red"
+    }, {
+        "questionText": "The ocean is ____",
+        "choices":["red", "blue", "green"],
+        "userInput": "green"
+    }
+]

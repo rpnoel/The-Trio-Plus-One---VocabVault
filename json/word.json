@@ -1,0 +1,11 @@
+[
+    {
+        "wordText": "Gracias",
+        "wordSpelling": ["G", "r", "a", "c", "i", "a", "s"],
+        "wordPronounciation": "Grah-See-Uhs"
+    }, {
+        "wordText": "Hola",
+        "wordSpelling": ["H", "o", "l", "a"],
+        "wordPronounciation": "Oh-La"
+    }
+]

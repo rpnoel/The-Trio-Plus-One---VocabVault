@@ -1,9 +1,9 @@
 [
     {
-        "cosmetics":"HAT", 
-        "powerUps": 2
+        "cosmetics":["HAT"],
+        "powerUps": ["NARROW_DOWN", "SKIP"]
     }, {
-        "cosmetics":"AVATAR", 
-        "powerUps": 1
+        "cosmetics":["AVATAR"], 
+        "powerUps": ["HINT", "RETRY", "NARROW_DOWN"]
     }
 ]

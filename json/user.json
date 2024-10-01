@@ -1,12 +1,33 @@
 [
     {
-        "username":"mason_man21", 
         "userID": 93024822,
-        "rank": ["BRONZE", 83],
+        "username":"mason_man21", 
+        "rank": [{
+            "type": "SILVER",
+            "ranking": 49
+        }],
         "points": 271,
-        ""
+        "userProgress": "StoryMode",
+        "purchasedCosmetics":["HAT"],
+        "purchasedPowerUps":["HINT"],
+        "firstName": "Johnathan",
+        "lastName": "Mason",
+        "email": "masonM@yahoo.com",
+        "inventory": "Inventory"
     }, {
-        "type":"AVATAR", 
-        "cost": 1
+        "userID": 83939822,
+        "username":"kitKatLover", 
+        "rank": [{
+            "type": "GOLD",
+            "ranking": 13
+        }],
+        "points": 321,
+        "userProgress": "StoryMode",
+        "purchasedCosmetics":["AVATAR"],
+        "purchasedPowerUps":["SKIP", "DOUBLE_POINTS"],
+        "firstName": "Mary",
+        "lastName": "Preston",
+        "email": "mPreston@gmail.com",
+        "inventory": "Inventory"
     }
 ]

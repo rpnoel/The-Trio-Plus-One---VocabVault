@@ -1,6 +1,8 @@
 [
     {
-        "userList":"HAT"
+        "userList":{
+            
+        }
     }, {
         "userList":"AVATAR"
     }

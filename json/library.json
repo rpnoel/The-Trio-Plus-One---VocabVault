@@ -1,0 +1,9 @@
+[
+    {
+        "bookList": ["Book Number One"],
+        "bookLanguage": "German"
+    }, {
+        "bookList": ["Book Number Two", "Book Number Three"],
+        "bookLanguage": "Spanish"
+    }
+]
