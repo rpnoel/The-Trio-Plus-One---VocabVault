@@ -1,9 +1,0 @@
-[
-    {
-        "type":"SKIP", 
-        "cost": 4
-    }, {
-        "type":"RETRY", 
-        "cost": 2
-    }
-]

@@ -1,9 +1,0 @@
-[
-    {
-        "cosmetics":["HAT"],
-        "powerUps": ["NARROW_DOWN", "SKIP"]
-    }, {
-        "cosmetics":["AVATAR"], 
-        "powerUps": ["HINT", "RETRY", "NARROW_DOWN"]
-    }
-]

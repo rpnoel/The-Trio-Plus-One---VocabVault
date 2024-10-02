@@ -1,9 +1,17 @@
 [
     {
-        "bookList": ["Book Number One"],
+        "bookList": [{
+            "title": "Book Number One",
+            "author": "Charles Ollie",
+            "bookText": ["This is a book", "A very good book in fact"]
+        }],
         "bookLanguage": "German"
     }, {
-        "bookList": ["Book Number Two", "Book Number Three"],
+        "bookList": [{
+            "title": "Book Number Two",
+            "author": "Arthur Darwin",
+            "bookText": ["This is another book", "A very awful book in fact"]
+        }],
         "bookLanguage": "Spanish"
     }
 ]
