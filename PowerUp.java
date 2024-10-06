@@ -4,9 +4,11 @@ public class PowerUp{
   }
 
   public int getCost(){
+    return cost;
   }
 
   public PowerUpType getType(){
+    return type;
   }
   
 }
