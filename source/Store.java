@@ -18,7 +18,7 @@ public class Store{
   public void addCosmetic(CosmeticType type, int cost){
   }
   
-  public void addPowerUp(PowerUpType, int cost){
+  public void addPowerUp(PowerUpType type, int cost){
   }
   
 }
