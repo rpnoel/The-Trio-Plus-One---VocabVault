@@ -1,3 +1,3 @@
-public interface LeagueType {
+public enum LeagueType {
     
 }
