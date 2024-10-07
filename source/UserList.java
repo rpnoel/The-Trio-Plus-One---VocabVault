@@ -7,7 +7,7 @@ public class UserList {
     }
 
     public UserList getInstance(){
-
+        return userList;
     }
 
     public addUser(){
@@ -23,7 +23,7 @@ public class UserList {
     }
 
     public editUser(){
-        
+
     }
 
 

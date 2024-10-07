@@ -1,9 +1,14 @@
+import java.util.ArrayList;
+
 public class DataLoader {
-    public ArrayList<User> getUsers(){
+private user UserList;
+
+    public ArrayList<User> getUser(){
         return UserList;
     }
 
     public static void main(String[] args) {
-        DataLoader();
+        DataLoader testLoader = new DataLoader();
+        testLoader.getUsers();
     }
 }
