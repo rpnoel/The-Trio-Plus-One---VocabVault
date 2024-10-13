@@ -5,7 +5,7 @@ public class StoryMode {
     private static StoryMode levelList;
 
     public ArrayList<Level> getWorldLevels(){
-
+        return worldLevels();
     }
 
     public Level getLevel(int levelNum){
