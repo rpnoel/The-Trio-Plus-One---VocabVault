@@ -18,7 +18,9 @@ public class DataLoader extends DataConstants{
                 JSONObject userJSON = (JSONObject)usersJSON.get(i);
                 String userName = (String)userJSON.get(USERNAME);
                 String email = (String)userJSON.get(EMAIL);
-                users.add(new User(userName, email));
+                String firstName = (String)userJSON.get(FIRST_NAME);
+                String lastName = (String)userJSON.get(LAST_NAME);
+                users.add(new User(userName, email, firstName, lastName));
            }
 
             return users;

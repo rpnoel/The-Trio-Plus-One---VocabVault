@@ -15,12 +15,38 @@ public class UserList {
         return users;
     }
 
-public void addUser(String username, String email){
-    userList.add(new User(username, email));
+public boolean addUser(String username, String email, String firstName, String lastName){
+    if(haveUser(username)) return false;
+
+    userList.add(new User(username, email, firstName, lastName));
+    return true;
 }
 
     public ArrayList<User>getUsers(){
         return userList;
     }
 
+    public boolean haveUser(String userName) {
+		for(User user : userList) {
+			if(user.getUsername().equals(userName)) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
+
+    public User getUser(String userName) {
+		for(User user : userList) {
+			if(user.getUsername().equals(userName)) {
+				return user;
+			}
+		}
+		
+		return null;
+	}
+    
+    public void saveUser(){
+        DataWriter.saveUsers();
+    }
 }

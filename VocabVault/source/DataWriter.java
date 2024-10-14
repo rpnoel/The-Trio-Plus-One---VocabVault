@@ -10,14 +10,14 @@ public class DataWriter extends DataConstants {
 	public static void saveUsers() {
 		UserList users = UserList.getInstance();
 		ArrayList<User> userList = users.getUsers();
-		JSONArray jsonFriends = new JSONArray();
+		JSONArray jsonUsers = new JSONArray();
 		
 		for(int i=0; i< userList.size(); i++) {
-			jsonFriends.add(getUserJSON(userList.get(i)));
+			jsonUsers.add(getUserJSON(userList.get(i)));
 		}
 		
         try (FileWriter file = new FileWriter(USER_FILE_NAME)) {
-            file.write(jsonFriends.toJSONString());
+            file.write(jsonUsers.toJSONString());
             file.flush();
  
         } catch (IOException e) {
@@ -29,10 +29,8 @@ public class DataWriter extends DataConstants {
 		JSONObject userDetails = new JSONObject();
 		userDetails.put(USERNAME, user.getUsername());
 		userDetails.put(EMAIL, user.getEmail());
+		userDetails.put(FIRST_NAME, user.getFirstName());
+		userDetails.put(LAST_NAME, user.getLastName());
         return userDetails;
 	}
-
-    public static void main(String[] args) {
-        DataWriter.saveUsers();
-    }
 }
