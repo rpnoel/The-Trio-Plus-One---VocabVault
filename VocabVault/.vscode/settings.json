@@ -1,4 +1,7 @@
 {
     "java.debug.settings.onBuildFailureProceed": true,
-    "java.dependency.packagePresentation": "flat"
+    "java.dependency.packagePresentation": "flat",
+    "editor.fontFamily": "Consalas",
+    "workbench.editor.enablePreview": true,
+    "editor.fontSize": 14
 }

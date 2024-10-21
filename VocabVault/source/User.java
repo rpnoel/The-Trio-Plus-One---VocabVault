@@ -11,26 +11,25 @@ public class User {
     private StoryMode userProgress;
     private String firstName;
     private String lastName;
+    private String password;
 
-    public User(String username, String email, String firstName, String lastName){
+    public User(String username, String email, String firstName, String lastName, String password){
         this.userID = UUID.randomUUID();
         this.username = username;
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.password = password;
     }
 
-    public User(UUID userID, String username, String email, String firstName, String lastName){
+    public User(UUID userID, String username, String email, String firstName, String lastName, String password){
         this.userID = userID;
         this.username = username;
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.password = password;
     }
-
-    public UUID getId() {
-		return userID;
-	}
 
     public String getUsername(){
         return username;
@@ -72,7 +71,25 @@ public class User {
         this.lastName = lastName;
     }
 
+    public String getPassword(){
+        return password;
+    }
 
+    public void setPassword(String password){
+        this.password= password;
+    }
+
+    public boolean checkPassword(String password){
+        return this.password.equals(password);
+    }
+
+    public UUID getUserId(){
+        return userID;
+    }
+
+    public void setUserId(UUID userID){
+        this.userID= userID;
+    }
     
 
 

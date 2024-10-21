@@ -5,4 +5,5 @@ public abstract class DataConstants {
     protected static final String EMAIL = "email";
     protected static final String FIRST_NAME = "firstname";
     protected static final String LAST_NAME = "lastname";
+    protected static final String PASSWORD = "password";
 }
