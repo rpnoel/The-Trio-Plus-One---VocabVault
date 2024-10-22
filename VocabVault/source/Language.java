@@ -1,3 +1,5 @@
+package VocabVault.source;
+
 //@author Max Granger
 
 public enum Language {
