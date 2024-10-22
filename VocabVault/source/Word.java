@@ -1,5 +1,3 @@
-package VocabVault.source;
-
 public class Word {
     private String wordText;
     private char[] wordSpelling;
