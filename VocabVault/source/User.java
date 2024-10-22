@@ -4,71 +4,33 @@ import java.util.UUID;
 
 /* CHange */
 public class User {
-    private UUID userID; // Unique identifier for the user
-    private String username; // Username of the user
-    private String email; // Email of the user
-    private Rank rank; // User's rank
-    private int points; // User's points
-    private ArrayList<Language> languages; // List of languages the user is learning
-    private StoryMode userProgress; // User's progress in story mode
-    private ArrayList<Cosmetic> cosmetics; // User's cosmetic items
-    private ArrayList<PowerUp> powerUps; // User's power-ups
-    private String firstName; // User's first name
-    private String lastName; // User's last name
-    private HashMap<LeagueType, Rank> rankList; // List of ranks based on league
+    private UUID userID;
+    private String username;
+    private String email;
+    private Rank rank;
+    private int points;
+    private ArrayList<Language> languages;
+    private StoryMode userProgress;
+    private String firstName;
+    private String lastName;
+    private String password;
 
-    /**
-     * Constructor to create a new user with basic information.
-     * A new unique UUID is generated for each user.
-     *
-     * @param username 
-     * @param email     
-     * @param firstName 
-     * @param lastName  
-     */
-    public User(String username, String email, String firstName, String lastName) {
+    public User(String username, String email, String firstName, String lastName, String password){
         this.userID = UUID.randomUUID();
         this.username = username;
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.points = 0;
-        this.languages = new ArrayList<>();
-        this.cosmetics = new ArrayList<>();
-        this.powerUps = new ArrayList<>();
-        this.rankList = new HashMap<>();
+        this.password = password;
     }
 
-    /**
-     * Constructor to create a new user with a specified UUID.
-     * This is useful when restoring users from a saved state.
-     *
-     * @param userID    The unique ID of the user
-     * @param username  The username of the user
-     * @param email     The email of the user
-     * @param firstName The user's first name
-     * @param lastName  The user's last name
-     */
-    public User(UUID userID, String username, String email, String firstName, String lastName) {
+    public User(UUID userID, String username, String email, String firstName, String lastName, String password){
         this.userID = userID;
         this.username = username;
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.points = 0;
-        this.languages = new ArrayList<>();
-        this.cosmetics = new ArrayList<>();
-        this.powerUps = new ArrayList<>();
-        this.rankList = new HashMap<>();
-    }
-
-    /**
-     * Gets the unique user ID.
-     *
-     * @return The user's unique ID.
-     */
-    public UUID getId() {
-        return userID;
+        this.password = password;
     }
 
     /**
@@ -152,68 +114,26 @@ public class User {
         this.lastName = lastName;
     }
 
-    /**
-     * Adds a language to the user's list of languages.
-     *
-     * @param language The language to be added.
-     */
-    public void addLanguage(Language language) {
-        this.languages.add(language);
+    public String getPassword(){
+        return password;
     }
 
-    /**
-     * Adds a cosmetic item to the user's inventory.
-     *
-     * @param cosmetic The cosmetic item to be added.
-     */
-    public void addCosmetic(Cosmetic cosmetic) {
-        this.cosmetics.add(cosmetic);
+    public void setPassword(String password){
+        this.password= password;
     }
 
-    /**
-     * Adds a power-up to the user's inventory.
-     *
-     * @param powerUp The power-up to be added.
-     */
-    public void addPowerUp(PowerUp powerUp) {
-        this.powerUps.add(powerUp);
+    public boolean checkPassword(String password){
+        return this.password.equals(password);
     }
 
-    /**
-     * Gets the user's inventory of cosmetic items.
-     *
-     * @return The list of cosmetics the user owns.
-     */
-    public ArrayList<Cosmetic> getCosmetics() {
-        return cosmetics;
+    public UUID getUserId(){
+        return userID;
     }
 
-    /**
-     * Gets the user's inventory of power-ups.
-     *
-     * @return The list of power-ups the user owns.
-     */
-    public ArrayList<PowerUp> getPowerUps() {
-        return powerUps;
+    public void setUserId(UUID userID){
+        this.userID= userID;
     }
+    
 
-    /**
-     * Gets the list of ranks for different league types.
-     *
-     * @return A map of league types to ranks.
-     */
-    public HashMap<LeagueType, Rank> getRankList() {
-        return rankList;
-    }
 
-    /**
-     * Sets the rank for a particular league type.
-     *
-     * @param league The league type.
-     * @param rank   The rank to be set for the league.
-     */
-    public void setRank(LeagueType league, Rank rank) {
-        this.rankList.put(league, rank);
-    }
 }
-

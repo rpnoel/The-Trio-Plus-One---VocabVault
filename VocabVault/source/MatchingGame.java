@@ -1,3 +1,5 @@
+package VocabVault.source;
+
 // @author Max Granger
 import java.util.ArrayList;
 

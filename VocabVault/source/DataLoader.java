@@ -1,5 +1,7 @@
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.UUID;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -16,11 +18,13 @@ public class DataLoader extends DataConstants{
 
             for(int i=0; i < usersJSON.size(); i++) {
                 JSONObject userJSON = (JSONObject)usersJSON.get(i);
+            
                 String userName = (String)userJSON.get(USERNAME);
                 String email = (String)userJSON.get(EMAIL);
                 String firstName = (String)userJSON.get(FIRST_NAME);
                 String lastName = (String)userJSON.get(LAST_NAME);
-                users.add(new User(userName, email, firstName, lastName));
+                String password = (String)userJSON.get(PASSWORD);
+                users.add(new User(userName, email, firstName, lastName, password));
            }
 
             return users;

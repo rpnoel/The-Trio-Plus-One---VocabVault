@@ -1,3 +1,5 @@
+package VocabVault.source;
+
 // @author Max Granger
 import java.util.ArrayList;
 
@@ -6,7 +8,7 @@ public class MultipleChoice extends Question {
     private ArrayList<String> choices;
     private int correctAnswer; //correct answer 1-4
 
-    public MultipleChoice(String questionText, ArrayList<String> choices, int correctAnswer) {
+    public MultipleChoice() {
         this.questionText = questionText;
         this.choices = choices;
         this.correctAnswer = correctAnswer;
