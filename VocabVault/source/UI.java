@@ -1,3 +1,4 @@
+package com.narriation;
 import java.util.Scanner;
 
 public class UI {
@@ -44,12 +45,16 @@ public class UI {
         }
     }
 
-    public void currentScenario(){
-        if(facade.getCurrentUser() == null){
-            System.out.println("No user is currently logged in");
+    public void currentScenario() {
+        String currentUser = facade.getCurrentUser();  
+        if (currentUser != "Empty") {
+            System.out.println("The current user logged in is " + currentUser);
+        } else {
+            System.err.println("No user is currently logged in");
         }
-        System.out.println("The current user logged in is "+ facade.getCurrentUser());
     }
+    
+    
 
     public void logoutScenario(){
         facade.logout();

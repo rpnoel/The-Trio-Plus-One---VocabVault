@@ -37,21 +37,21 @@ public class VocabVaultFACADE {
         boolean newUser = userList.addUser(userName, email, firstName, lastName, password);
         if(newUser){
             DataWriter.saveUsers();
+            currentUser = userList.getUser(userName);
             return true;
         }
             return false;
         }
 
-    public String getCurrentUser(){
-        return currentUser.getUsername();
-    }
-
-    public ArrayList<Language> currentLanguages(){
-        return currentUser.getLanguages();
-    }
+        public String getCurrentUser() {
+            if (currentUser == null) {
+                return "Empty";
+            }
+            return currentUser.getUsername();
+        }
+        
 
     public void logout(){
-        //TODO: Print Goodbye based on Language being studied
         System.out.println("Goodbye, " + getCurrentUser() + "!");
         currentUser = null;
     }
