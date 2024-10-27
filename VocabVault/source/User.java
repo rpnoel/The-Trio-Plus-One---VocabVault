@@ -133,7 +133,14 @@ public class User {
     public void setUserId(UUID userID){
         this.userID= userID;
     }
+
+    public void addLanguage(Language newLanguage){
+        languages.add(newLanguage);
+    }
     
+    public ArrayList<Language> getLanguages(){
+        return languages;
+    }
 
 
 }
