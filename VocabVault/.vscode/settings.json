@@ -4,4 +4,5 @@
     "editor.fontFamily": "Consalas",
     "workbench.editor.enablePreview": true,
     "editor.fontSize": 14
+    "java.configuration.updateBuildConfiguration": "interactive"
 }
