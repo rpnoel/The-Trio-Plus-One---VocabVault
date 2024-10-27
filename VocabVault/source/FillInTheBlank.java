@@ -4,13 +4,9 @@ public class FillInTheBlank extends Question {
     public String questionText;
     public String correctAnswer;
     
-    public FillInTheBlank(String questionText, String correctAnswer) {
-        this.questionText = questionText;
-        this.correctAnswer = correctAnswer;
-    }
-
-    public String getQString() {
-        return this.questionText;
+    public FillInTheBlank(Word word) {
+        this.questionText = "Translate the following to Spanish: " + word.getTranslation();
+        this.correctAnswer = word.getWordText();
     }
 
     public String getCorrAnswer() {

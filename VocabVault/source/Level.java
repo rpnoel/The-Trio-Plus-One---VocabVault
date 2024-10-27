@@ -1,14 +1,27 @@
-package VocabVault.source;
-
 import java.util.ArrayList;
 
 public class Level {
     private ArrayList<Question> questions;
     private boolean complete;
     private int levelNum;
+    private int qNum; //number of questions
 
-    public Level(int levelNum){
+    public Level(int levelNum, Book sourceBook){
+        this.levelNum = levelNum;
 
+    }
+
+    private Question generateQ(Word word, ArrayList<String> choices) {
+        qNum++;
+        if (qNum % 4 == 0) {
+            return new TrueOrFalse();
+        } else if (qNum % 3 == 0) {
+            return new FillInTheBlank(word);
+        } else if (qNum % 2 == 0) {
+            return new MatchingGame(); //return matching game type question
+        } else {
+            return new MultipleChoice(word, choices);
+        }
     }
 
     public ArrayList<Question> getAllQuestions(){
