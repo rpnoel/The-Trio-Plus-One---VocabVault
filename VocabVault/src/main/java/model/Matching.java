@@ -23,4 +23,8 @@ public class Matching extends Question {
     public String getQuestionText() {
         return this.questionText;
     }
+    
+    public String toString() {
+        return "Question: " + questionText + " | Correct Answer: " + correctAnswer;
+    }
 }
