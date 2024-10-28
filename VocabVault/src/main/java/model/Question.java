@@ -1,4 +1,4 @@
-package src.main.java.model;
+package model;
 import java.util.ArrayList;
 import java.io.FileReader;
 import java.io.BufferedReader;
@@ -24,7 +24,7 @@ public abstract class Question {
 
     private ArrayList<String> generateChoices() {
         try {
-            BufferedReader reader = new BufferedReader(new FileReader("txt/answerChoices.txt"));
+            BufferedReader reader = new BufferedReader(new FileReader("VocabVault\\txt\\answerChoices.txt"));
             ArrayList<String> choices = new ArrayList<String>();
             String line = reader.readLine();
             while (line != null) {

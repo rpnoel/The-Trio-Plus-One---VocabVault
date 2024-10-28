@@ -63,9 +63,5 @@ public class VocabVaultFACADE {
         UserProgressTracker usrProg = new UserProgressTracker(currentUser);
         usrProg.displayProgress();
     }
-
-    public Level loadLevel(){
-        Level newLevel = new Level(0, 0, null)
-    }
     }
 

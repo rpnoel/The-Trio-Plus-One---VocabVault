@@ -1,4 +1,4 @@
-package src.main.java.model;
+package model;
 // @author Max Granger
 import java.util.ArrayList;
 
