@@ -1,4 +1,4 @@
-package src.main.java.model;
+package model;
 
 //@author Max Granger
 import java.io.BufferedReader;
@@ -18,7 +18,7 @@ public class BookReader {
             String line = reader.readLine();
             if (line != null) {
                 String[] words = line.split(",");
-                for (int i = 0; i < words.length; i++) {
+                for (int i = 0; i < words.length - 1; i += 2) {
                     vocabWords.add(new Word(words[i], words[i + 1]));
                 }
             }
@@ -32,4 +32,16 @@ public class BookReader {
             System.out.println(e);
         }
     }
+    @Override
+    public String toString() {
+        if (book != null) {
+            return "Title: " + book.getTitle() + "\nBody:\n" + book.getText() + "\nVocabulary Words:\n" + book.getVocabWords();
+        } else {
+            return "No book data available.";
+        }
+    }
+    public static void main(String[] args) {
+
+    }
 }
+

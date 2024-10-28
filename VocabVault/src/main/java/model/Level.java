@@ -1,4 +1,4 @@
-package src.main.java.model;
+package model;
 import java.util.ArrayList;
 
 public class Level {
@@ -10,9 +10,14 @@ public class Level {
     public Level(int levelNum, int qNum, Book sourceBook){
         this.levelNum = levelNum;
         this.qNum = qNum;
+        this.questions = new ArrayList<>();
+
         ArrayList<Word> vocabWords = sourceBook.getVocabWords();
-        for (Word word : vocabWords) {
-            questions.add(generateQ(word))
+        for (int i = 0; i < qNum && i < vocabWords.size(); i++) {
+            Word word = vocabWords.get(i);
+            boolean trueFalseAnswer = true; 
+            String correctAnswer = "Correct Answer"; 
+            questions.add(generateQ(word, trueFalseAnswer, correctAnswer));
         }
     }
 
@@ -52,5 +57,11 @@ public class Level {
 
     public void setComplete(Boolean booL){
         
+    }
+
+    public static void main(String[] args) {
+        BookReader bookReader = new BookReader("VocabVault\\txt\\goldilocksESP.txt"); 
+        Book sourceBook = bookReader.book;
+        Level newLevel = new Level(1, 5, sourceBook);
     }
 }

@@ -63,10 +63,35 @@ public class UI {
         facade.checkProg();
     }
 
+    public void study(){
+        System.out.println("Continue Reading?");
+        String Userchoice = scanner.nextLine();
+        if(Userchoice.equalsIgnoreCase("Yes")){
+        BookReader read = new BookReader("VocabVault\\txt\\POLLYgoldilocksESP.txt");
+        System.out.println(read);
+        Narriator.playSound(read.book.getText());
+        }
+    }
+
+    public Level newLevel(){
+    BookReader bookReader = new BookReader("VocabVault\\txt\\answerChoices.txt"); 
+    Book sourceBook = bookReader.book;
+
+    if (sourceBook != null) {
+        return new Level(1, 5, sourceBook); 
+    } else {
+        System.err.println("Error: Book source could not be loaded for the level.");
+        return null;  
+    }
+}
+    
+
     public static void main(String[] args) {
         UI ui = new UI(); 
         Scanner keyboard = new Scanner(System.in);
         int userInput = -1;
+        Level currentLevel = null;
+
         while (userInput != 0) {
             System.out.println("Choose an option:");
             System.out.println("1 - Create Account");
@@ -74,6 +99,8 @@ public class UI {
             System.out.println("3 - Current User");
             System.out.println("4 - Logout");
             System.out.println("5 - Progress");
+            System.out.println("6 - Study");
+            System.out.println("7 - Play");
             System.out.println("0 - Exit");
         userInput = keyboard.nextInt();
         switch (userInput) {
@@ -92,6 +119,13 @@ public class UI {
             case 5:
                 ui.checkProg();
                 break;
+            case 6:
+                ui.study();
+                break;
+            case 7:
+                ui.newLevel();
+                break;
+            case 0:
             default:
                 break;
         }

@@ -1,4 +1,4 @@
-package src.main.java.model;
+package model;
 // @author Max Granger
 import java.util.ArrayList;
 
@@ -27,4 +27,10 @@ public class MultipleChoice extends Question {
         }
         return false;
     }
+
+    public String toString(){
+        return questionText;
+    }
+
+    
 }
