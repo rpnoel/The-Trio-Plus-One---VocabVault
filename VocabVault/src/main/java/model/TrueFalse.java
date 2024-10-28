@@ -17,4 +17,8 @@ public class TrueFalse extends Question {
     public boolean checkAnswer(boolean userAnswer) {
         return userAnswer == this.correctAnswer;
     }
+
+    public String toString() {
+        return "Question: " + questionText + " | Correct Answer: " + correctAnswer;
+    }
 }
