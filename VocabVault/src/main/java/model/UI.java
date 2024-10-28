@@ -73,25 +73,16 @@ public class UI {
         }
     }
 
-    public Level newLevel(){
-    BookReader bookReader = new BookReader("VocabVault\\txt\\answerChoices.txt"); 
-    Book sourceBook = bookReader.book;
-
-    if (sourceBook != null) {
-        return new Level(1, 5, sourceBook); 
-    } else {
-        System.err.println("Error: Book source could not be loaded for the level.");
-        return null;  
+    public void play(){
+        facade.play();
     }
-}
     
 
     public static void main(String[] args) {
-        UI ui = new UI(); 
+        UI ui = new UI();
         Scanner keyboard = new Scanner(System.in);
         int userInput = -1;
-        Level currentLevel = null;
-
+    
         while (userInput != 0) {
             System.out.println("Choose an option:");
             System.out.println("1 - Create Account");
@@ -102,34 +93,30 @@ public class UI {
             System.out.println("6 - Study");
             System.out.println("7 - Play");
             System.out.println("0 - Exit");
-        userInput = keyboard.nextInt();
-        switch (userInput) {
-            case 1:
-                ui.addScenario();
-                break;    
-            case 2:
-                ui.loginScenario();
-                break;
-            case 3:
-                ui.currentScenario();
-                break;
-            case 4:
-                ui.logoutScenario();
-                break;
-            case 5:
-                ui.checkProg();
-                break;
-            case 6:
-                ui.study();
-                break;
-            case 7:
-                ui.newLevel();
-                break;
-            case 0:
-            default:
-                break;
+    
+            // Check if next input is an integer
+            if (keyboard.hasNextInt()) {
+                userInput = keyboard.nextInt();
+                keyboard.nextLine(); // Consume newline left after nextInt()
+    
+                switch (userInput) {
+                    case 1 -> ui.addScenario();
+                    case 2 -> ui.loginScenario();
+                    case 3 -> ui.currentScenario();
+                    case 4 -> ui.logoutScenario();
+                    case 5 -> ui.checkProg();
+                    case 6 -> ui.study();
+                    case 7 -> ui.play();
+                    case 0 -> System.out.println("Exiting...");
+                    default -> System.out.println("Invalid option, please try again.");
+                }
+            } else {
+                System.out.println("Invalid input. Please enter a number.");
+                keyboard.next(); // Clear the invalid input
+            }
         }
-}
+    
+        keyboard.close();
     }
 }
 

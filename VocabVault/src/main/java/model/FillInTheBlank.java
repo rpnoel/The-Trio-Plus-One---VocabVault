@@ -26,6 +26,6 @@ public class FillInTheBlank extends Question {
 
     @Override
     public String toString() {
-        return this.questionText;
+        return "Question: " + questionText;
     }
 }

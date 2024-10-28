@@ -14,11 +14,19 @@ public class TrueFalse extends Question {
         return this.questionText;
     }
 
-    public boolean checkAnswer(boolean userAnswer) {
-        return userAnswer == this.correctAnswer;
+    public boolean checkAnswer(String userAnswer) {
+        return userAnswer.equals(this.correctAnswer);
+    }
+
+    public void correctAnswer(String userAnswer) {
+        if(checkAnswer(userAnswer)){
+            System.out.println("The answer was True");
+        } else {
+            System.out.println("The answer was False");
+        }
     }
 
     public String toString() {
-        return "Question: " + questionText + " | Correct Answer: " + correctAnswer;
+        return "Question: " + questionText;
     }
 }
