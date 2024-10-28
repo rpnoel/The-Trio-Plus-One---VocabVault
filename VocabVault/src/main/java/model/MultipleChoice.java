@@ -1,4 +1,4 @@
-package model;
+package src.main.java.model;
 // @author Max Granger
 import java.util.ArrayList;
 
@@ -8,10 +8,10 @@ public class MultipleChoice extends Question {
     private ArrayList<String> choices;
     private int correctAnswer; //correct answer 1-4
 
-    public MultipleChoice(Word word, ArrayList<String> otherChoices) {
+    public MultipleChoice(Word word) {
         this.questionText = "Choose the correct translation of " + word.getWordText() + ".";
-        this.choices = otherChoices;
         this.correctAnswer = (int) Math.random() * 4;
+        this.choices = getChoices();
         choices.add(correctAnswer, word.getTranslation());
     }
 
