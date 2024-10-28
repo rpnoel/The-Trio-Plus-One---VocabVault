@@ -16,9 +16,16 @@ public abstract class Question {
         ArrayList<String> allChoices = generateChoices();
         Random rand = new Random();
         this.choices = new ArrayList<String>();
-        for (int i = 0; i < 4; i++) {
-            choices.add(allChoices.get(rand.nextInt(50)));
+        if (allChoices.size() < 4) {
+            return allChoices; 
         }
+
+        for (int i = 0; i < 4; i++) {
+            int index = rand.nextInt(allChoices.size());
+            choices.add(allChoices.get(index));
+            allChoices.remove(index); // Ensure no duplicate choices
+        }
+
         return choices;
     }
 
@@ -30,10 +37,11 @@ public abstract class Question {
             while (line != null) {
                 choices.add(line);
             }
-            return choices;
         } catch (Exception e) {
             System.out.println(e);
             return null;
         }
+        return choices;
     }
+
 }

@@ -67,7 +67,7 @@ public class UI {
         System.out.println("Continue Reading?");
         String Userchoice = scanner.nextLine();
         if(Userchoice.equalsIgnoreCase("Yes")){
-        BookReader read = new BookReader("VocabVault\\txt\\goldilocksESP.txt");
+        BookReader read = new BookReader("VocabVault\\txt\\POLLYgoldilocksESP.txt");
         System.out.println(read);
         Narriator.playSound(read.book.getText());
         }
@@ -124,9 +124,6 @@ public class UI {
                 break;
             case 7:
                 ui.newLevel();
-                if (currentLevel != null) {
-                    System.out.println("New Level Started: " + currentLevel.getAllQuestions());
-                }
                 break;
             case 0:
             default:

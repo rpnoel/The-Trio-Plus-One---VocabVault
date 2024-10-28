@@ -27,4 +27,10 @@ public class MultipleChoice extends Question {
         }
         return false;
     }
+
+    public String toString(){
+        return questionText;
+    }
+
+    
 }
