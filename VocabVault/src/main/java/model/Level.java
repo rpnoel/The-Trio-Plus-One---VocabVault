@@ -7,9 +7,9 @@ public class Level {
     private int levelNum;
     private int qNum; //number of questions
 
-    public Level(int levelNum, Book sourceBook){
+    public Level(int levelNum, int qNum, Book sourceBook){
         this.levelNum = levelNum;
-
+        this.qNum = qNum;
     }
 
     private Question generateQ(Word word, ArrayList<String> choices, boolean truefalse, String correctanswer) {
@@ -30,13 +30,15 @@ public class Level {
     }
 
     public Question getQuestion(int questionType){
-        // 1 - multiple choice, 2 - mathcing, 3 - fill in the blank
+        // 1 - multiple choice, 2 - mathcing, 3 - fill in the blank - 4 - true or false
         if (questionType == 1) {
             return questions.get(0);
         } else if (questionType == 2) {
             return questions.get(1);
-        } else {
+        } else if (questionType == 3) {
             return questions.get(2);
+        } else {
+            return questions.get(3);
         }
     }
 

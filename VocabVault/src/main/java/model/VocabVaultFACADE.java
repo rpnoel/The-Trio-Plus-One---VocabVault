@@ -5,6 +5,7 @@ public class VocabVaultFACADE {
     private User user;
     private UserList userList;
     private User currentUser;
+    private UserProgressTracker usrProg;
 
     public VocabVaultFACADE(){
         userList = UserList.getInstance();
@@ -55,6 +56,11 @@ public class VocabVaultFACADE {
     public void logout(){
         System.out.println("Goodbye, " + getCurrentUser() + "!");
         currentUser = null;
+    }
+
+    public void checkProg(){
+        UserProgressTracker usrProg = new UserProgressTracker(currentUser);
+        usrProg.displayProgress();
     }
     }
 

@@ -55,11 +55,14 @@ public class UI {
         }
     }
     
-    
-
     public void logoutScenario(){
         facade.logout();
     }
+
+    public void checkProg(){
+        facade.checkProg();
+    }
+
     public static void main(String[] args) {
         UI ui = new UI(); 
         Scanner keyboard = new Scanner(System.in);
@@ -70,6 +73,7 @@ public class UI {
             System.out.println("2 - Login");
             System.out.println("3 - Current User");
             System.out.println("4 - Logout");
+            System.out.println("5 - Progress");
             System.out.println("0 - Exit");
         userInput = keyboard.nextInt();
         switch (userInput) {
@@ -84,6 +88,9 @@ public class UI {
                 break;
             case 4:
                 ui.logoutScenario();
+                break;
+            case 5:
+                ui.checkProg();
                 break;
             default:
                 break;
