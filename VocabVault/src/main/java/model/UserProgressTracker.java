@@ -66,7 +66,7 @@ public class UserProgressTracker {
         System.out.println("Accuracy: " + getAccuracy() + "%");
         System.out.println("Commonly Missed Questions:");
         for (Question question : getCommonlyMissedQuestions()) {
-            System.out.println("- " + question.getQuestionText());
+            System.out.println("- " + question.getQText());
         }
     }
 }

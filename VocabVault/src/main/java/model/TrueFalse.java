@@ -2,16 +2,16 @@ package model;
 // Created by Connor Ilgenfritz
 
 public class TrueFalse extends Question {
-    private String question;
+    private String questionText;
     private boolean correctAnswer;
 
-    public TrueFalse(String question, boolean correctAnswer) {
-        this.question = question;
+    public TrueFalse(boolean correctAnswer) {
+        this.questionText = "True or False:";
         this.correctAnswer = correctAnswer;
     }
 
-    public String getQuestion() {
-        return this.question;
+    public String getQuestionText() {
+        return this.questionText;
     }
 
     public boolean checkAnswer(boolean userAnswer) {

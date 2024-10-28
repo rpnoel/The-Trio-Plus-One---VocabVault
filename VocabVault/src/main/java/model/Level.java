@@ -12,14 +12,14 @@ public class Level {
 
     }
 
-    private Question generateQ(Word word, ArrayList<String> choices) {
+    private Question generateQ(Word word, ArrayList<String> choices, boolean truefalse, String correctanswer) {
         qNum++;
         if (qNum % 4 == 0) {
-            return new TrueOrFalse();
+            return new TrueFalse(truefalse);
         } else if (qNum % 3 == 0) {
             return new FillInTheBlank(word);
         } else if (qNum % 2 == 0) {
-            return new MatchingGame(); //return matching game type question
+            return new Matching(word, choices, correctanswer); //return matching game type question
         } else {
             return new MultipleChoice(word, choices);
         }

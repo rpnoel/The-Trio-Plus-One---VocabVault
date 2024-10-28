@@ -7,13 +7,11 @@ public class Matching extends Question {
     private String questionText;
     private ArrayList<String> choices;
     private String correctAnswer;
-    private QuestionType questionType;
 
-    public Matching(String questionText, ArrayList<String> choices, String correctAnswer, QuestionType questionType) {
-        this.questionText = questionText;
+    public Matching(Word word, ArrayList<String> choices, String correctAnswer) {
+        this.questionText = "Match the following word with the correct translation: "+word.getWordText();
         this.choices = choices;
         this.correctAnswer = correctAnswer;
-        this.questionType = questionType;
     }
 
     public boolean checkAnswer(String userAnswer) {
@@ -30,9 +28,5 @@ public class Matching extends Question {
 
     public String getQuestionText() {
         return this.questionText;
-    }
-
-    public QuestionType getQuestionType() {
-        return this.questionType;
     }
 }

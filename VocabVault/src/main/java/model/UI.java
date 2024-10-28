@@ -43,8 +43,7 @@ public class UI {
         String password = scanner.nextLine();
         boolean checkUser = facade.add(newUser, email, firstName, lastName, password);
         if(checkUser){
-            System.err.println("Welcome, " + newUser + "!");
-        }
+            System.err.println("Welcome, " + newUser + "!");        }
     }
 
     public void currentScenario() {
