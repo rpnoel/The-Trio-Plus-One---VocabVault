@@ -1,13 +1,14 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.UUID;
 
+/* CHange */
 public class User {
     private UUID userID;
     private String username;
     private String email;
     private Rank rank;
     private int points;
-    private ArrayList<Language> languages;
     private StoryMode userProgress;
     private String firstName;
     private String lastName;
@@ -31,43 +32,84 @@ public class User {
         this.password = password;
     }
 
-    public String getUsername(){
+    /**
+     * Gets the username of the user.
+     *
+     * @return The user's username.
+     */
+    public String getUsername() {
         return username;
     }
 
-    public Rank getRank(){
+    /**
+     * Gets the rank of the user.
+     *
+     * @return The user's current rank.
+     */
+    public Rank getRank() {
         return rank;
     }
 
+    /**
+     * Gets the email of the user.
+     *
+     * @return The user's email.
+     */
     public String getEmail() {
-		return email;
-	}
-	
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-    public void addPoints(int points){
-
+        return email;
     }
 
-    public void RegisteredUser(String firstName, String lastName, String userName, String email, String language){
-        
+    /**
+     * Sets a new email for the user.
+     *
+     * @param email The new email to be set.
+     */
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getFirstName(){
+    /**
+     * Adds points to the user's total points.
+     *
+     * @param points The number of points to add.
+     */
+    public void addPoints(int points) {
+        this.points += points;
+    }
+
+    /**
+     * Gets the first name of the user.
+     *
+     * @return The user's first name.
+     */
+    public String getFirstName() {
         return firstName;
     }
 
-    public void setFirstName(String firstName){
+    /**
+     * Sets the first name of the user.
+     *
+     * @param firstName The user's first name to be set.
+     */
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
-    public String getLastName(){
+    /**
+     * Gets the last name of the user.
+     *
+     * @return The user's last name.
+     */
+    public String getLastName() {
         return lastName;
     }
 
-    public void setLastName(String lastName){
+    /**
+     * Sets the last name of the user.
+     *
+     * @param lastName The user's last name to be set.
+     */
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
@@ -90,7 +132,6 @@ public class User {
     public void setUserId(UUID userID){
         this.userID= userID;
     }
-    
 
 
 }

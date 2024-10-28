@@ -39,33 +39,54 @@ public class UI {
         System.out.println("\nEnter a password:");
         String password = scanner.nextLine();
         boolean checkUser = facade.add(newUser, email, firstName, lastName, password);
-        if(!checkUser){
-            System.err.println("Error: This user already exists");
-        }
-        else if(!email.contains("@")){
-            System.err.println("Error: Email is not valid");
-        }
-        else if(password.length() < 8){
-            System.err.println("Error: Password must be at least 8 characters");
-        }
-        else{
+        if(checkUser){
             System.err.println("Welcome, " + newUser + "!");
         }
     }
 
-    public void currentScenario(){
-        if(facade.getCurrentUser() == null){
-            System.out.println("No user is currently logged in");
+    public void currentScenario() {
+        String currentUser = facade.getCurrentUser();  
+        if (currentUser != "Empty") {
+            System.out.println("The current user logged in is " + currentUser);
+        } else {
+            System.err.println("No user is currently logged in");
         }
-        System.out.println("The current user logged in is "+ facade.getCurrentUser());
     }
+    
+    
 
     public void logoutScenario(){
         facade.logout();
     }
     public static void main(String[] args) {
         UI ui = new UI(); 
-        ui.addScenario();
+        Scanner keyboard = new Scanner(System.in);
+        int userInput = -1;
+        while (userInput != 0) {
+            System.out.println("Choose an option:");
+            System.out.println("1 - Create Account");
+            System.out.println("2 - Login");
+            System.out.println("3 - Current User");
+            System.out.println("4 - Logout");
+            System.out.println("0 - Exit");
+        userInput = keyboard.nextInt();
+        switch (userInput) {
+            case 1:
+                ui.addScenario();
+                break;    
+            case 2:
+                ui.loginScenario();
+                break;
+            case 3:
+                ui.currentScenario();
+                break;
+            case 4:
+                ui.logoutScenario();
+                break;
+            default:
+                break;
+        }
 }
+    }
 }
 
