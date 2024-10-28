@@ -6,6 +6,7 @@ public class VocabVaultFACADE {
     private UserList userList;
     private User currentUser;
     private UserProgressTracker usrProg;
+    private Level newLevel;
 
     public VocabVaultFACADE(){
         userList = UserList.getInstance();
@@ -61,6 +62,10 @@ public class VocabVaultFACADE {
     public void checkProg(){
         UserProgressTracker usrProg = new UserProgressTracker(currentUser);
         usrProg.displayProgress();
+    }
+
+    public Level loadLevel(){
+        Level newLevel = new Level(0, 0, null)
     }
     }
 
