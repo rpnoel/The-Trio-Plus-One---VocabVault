@@ -29,7 +29,7 @@ public class MultipleChoice extends Question {
     }
 
     public String toString(){
-        return questionText;
+        return questionText + "\n\t1. " + choices.get(0) + "\n\t2. " + choices.get(1) + "\n\t3. " + choices.get(2) + "\n\t4. " + choices.get(3);
     }
 
     

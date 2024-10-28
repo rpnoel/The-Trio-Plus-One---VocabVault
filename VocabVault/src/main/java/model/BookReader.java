@@ -32,6 +32,11 @@ public class BookReader {
             System.out.println(e);
         }
     }
+
+    public Book getBook() {
+        return this.book;
+    }
+
     @Override
     public String toString() {
         if (book != null) {

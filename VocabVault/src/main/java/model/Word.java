@@ -15,6 +15,7 @@ public class Word {
         this.wordPronunciation = null;//pronunciation to be implelemted later
 
     }
+
     public String getWordText(){
         return wordText;
     }
@@ -29,5 +30,9 @@ public class Word {
 
     public String getTranslation() {
         return this.translation;
+    }
+    @Override
+    public String toString() {
+        return this.getWordText() + " - " + this.getTranslation();
     }
 }

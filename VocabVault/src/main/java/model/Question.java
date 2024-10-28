@@ -30,12 +30,13 @@ public abstract class Question {
     }
 
     private ArrayList<String> generateChoices() {
+        ArrayList<String> choices = new ArrayList<String>();
         try {
-            BufferedReader reader = new BufferedReader(new FileReader("VocabVault\\txt\\answerChoices.txt"));
-            ArrayList<String> choices = new ArrayList<String>();
+            BufferedReader reader = new BufferedReader(new FileReader("txt/answerChoices.txt"));
             String line = reader.readLine();
-            while (line != null) {
+            while (line != null && choices.size() < 50) {
                 choices.add(line);
+                line = reader.readLine();
             }
         } catch (Exception e) {
             System.out.println(e);

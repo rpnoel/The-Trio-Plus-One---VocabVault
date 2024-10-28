@@ -1,23 +1,26 @@
 package model;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Level {
     private ArrayList<Question> questions;
-    private boolean complete;
     private int levelNum;
-    private int qNum; //number of questions
+    private int qNum = 0; //number of questions
 
-    public Level(int levelNum, int qNum, Book sourceBook){
+    public Level(int levelNum, Book sourceBook) {
         this.levelNum = levelNum;
-        this.qNum = qNum;
         this.questions = new ArrayList<>();
+        populateQ(sourceBook);
+        System.out.println(getAllQuestions().toString());
+    }
 
+    private void populateQ(Book sourceBook) {
         ArrayList<Word> vocabWords = sourceBook.getVocabWords();
-        for (int i = 0; i < qNum && i < vocabWords.size(); i++) {
-            Word word = vocabWords.get(i);
-            boolean trueFalseAnswer = true; 
-            String correctAnswer = "Correct Answer"; 
-            questions.add(generateQ(word, trueFalseAnswer, correctAnswer));
+        Iterator<Word> iterator = vocabWords.iterator();
+        while (iterator.hasNext()) {
+            Word word = iterator.next();
+            questions.add(generateQ(word,true,word.getTranslation()));
+            iterator.remove();
         }
     }
 
@@ -59,9 +62,4 @@ public class Level {
         
     }
 
-    public static void main(String[] args) {
-        BookReader bookReader = new BookReader("VocabVault\\txt\\goldilocksESP.txt"); 
-        Book sourceBook = bookReader.book;
-        Level newLevel = new Level(1, 5, sourceBook);
-    }
 }
