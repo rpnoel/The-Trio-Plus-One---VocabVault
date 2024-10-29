@@ -1,35 +1,63 @@
 package model;
+
 import java.util.Scanner;
 
 import com.narriation.Narriator;
 
+/**
+ * User Interface (UI) class that handles user interaction for the VocabVault application.
+ * Provides options for login, account creation, studying, and checking progress.
+ * Created by Connor Ilgenfritz.
+ */
 public class UI {
+    
+    /**
+     * Scanner for user input.
+     */
     private Scanner scanner;
+
+    /**
+     * Facade object to interact with the VocabVault system.
+     */
     private VocabVaultFACADE facade;
+
+    /**
+     * Singleton instance of the UserList.
+     */
     private UserList userList;
 
+    /**
+     * Constructs the UI and initializes Scanner, facade, and user list instances.
+     */
     public UI() {
         this.scanner = new Scanner(System.in);
         this.facade = new VocabVaultFACADE();
         this.userList = UserList.getInstance();
     }
 
-    public void loginScenario(){
+    /**
+     * Handles the login scenario, prompting the user for username and password
+     * and verifying credentials with the facade.
+     */
+    public void loginScenario() {
         System.out.println("Welcome back to VocabVault!");
         System.out.println("Please enter your username");
         String username = scanner.nextLine();
         System.out.println("Please enter your password");
         String password = scanner.nextLine();
         facade.login(username, password);
-        if(!facade.login(username, password)){
+        if (!facade.login(username, password)) {
             System.err.println("Error: Invalid username or password");
-        }
-        else{
+        } else {
             System.err.println("Welcome back, " + username + "!");
         }
     }
 
-    public void addScenario(){
+    /**
+     * Handles the account creation scenario, prompting the user for details
+     * to create a new account and adding it through the facade.
+     */
+    public void addScenario() {
         System.out.println("Let's make an account!");
         System.out.println("\nEnter your Username:");
         String newUser = scanner.nextLine();
@@ -42,42 +70,64 @@ public class UI {
         System.out.println("\nEnter a password:");
         String password = scanner.nextLine();
         boolean checkUser = facade.add(newUser, email, firstName, lastName, password);
-        if(checkUser){
-            System.err.println("Welcome, " + newUser + "!");        }
+        if (checkUser) {
+            System.err.println("Welcome, " + newUser + "!");
+        }
     }
 
+    /**
+     * Displays the currently logged-in user, if any.
+     */
     public void currentScenario() {
         String currentUser = facade.getCurrentUser();  
-        if (currentUser != "Empty") {
+        if (!currentUser.equals("Empty")) {
             System.out.println("The current user logged in is " + currentUser);
         } else {
             System.err.println("No user is currently logged in");
         }
     }
-    
-    public void logoutScenario(){
+
+    /**
+     * Handles the logout scenario, logging out the current user via the facade.
+     */
+    public void logoutScenario() {
         facade.logout();
     }
 
-    public void checkProg(){
+    /**
+     * Checks the progress of the current user using the facade.
+     */
+    public void checkProg() {
         facade.checkProg();
     }
 
-    public void study(){
+    /**
+     * Initiates the study session, reading a book if the user chooses to continue,
+     * and plays the book narration if available.
+     */
+    public void study() {
         System.out.println("Continue Reading?");
         String Userchoice = scanner.nextLine();
-        if(Userchoice.equalsIgnoreCase("Yes")){
-        BookReader read = new BookReader("VocabVault\\txt\\POLLYgoldilocksESP.txt");
-        System.out.println(read);
-        Narriator.playSound(read.book.getText());
+        if (Userchoice.equalsIgnoreCase("Yes")) {
+            BookReader read = new BookReader("VocabVault\\txt\\POLLYgoldilocksESP.txt");
+            System.out.println(read);
+            Narriator.playSound(read.book.getText());
         }
     }
 
-    public void play(){
+    /**
+     * Starts the play mode for the current user using the facade.
+     */
+    public void play() {
         facade.play();
     }
-    
 
+    /**
+     * Main method to start the UI, allowing users to interact with the VocabVault system
+     * through various options such as account creation, login, and study.
+     *
+     * @param args command-line arguments (not used)
+     */
     public static void main(String[] args) {
         UI ui = new UI();
         Scanner keyboard = new Scanner(System.in);
@@ -119,4 +169,3 @@ public class UI {
         keyboard.close();
     }
 }
-
