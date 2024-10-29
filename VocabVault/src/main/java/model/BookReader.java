@@ -1,14 +1,27 @@
 package model;
 
-//@author Max Granger
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.lang.StringBuilder;
 import java.util.ArrayList;
 
+/**
+ * Reads a book from a file and creates a Book object.
+ * The file should contain vocabulary words and the book content.
+ * 
+ * @author Max Granger
+ */
 public class BookReader {
+    /**
+     * The Book object created from the file data.
+     */
     public Book book;
-    
+
+    /**
+     * Constructs a BookReader by reading data from the specified file.
+     * 
+     * @param fileName the name of the file to read
+     */
     public BookReader(String fileName) {
         ArrayList<Word> vocabWords = new ArrayList<Word>();
         String title = "";
@@ -33,10 +46,20 @@ public class BookReader {
         }
     }
 
+    /**
+     * Returns the Book object created by this BookReader.
+     * 
+     * @return the Book object
+     */
     public Book getBook() {
         return this.book;
     }
 
+    /**
+     * Returns a string representation of the BookReader, including the book's title, body text, and vocabulary words.
+     * 
+     * @return a string representation of the BookReader
+     */
     @Override
     public String toString() {
         if (book != null) {
@@ -45,8 +68,14 @@ public class BookReader {
             return "No book data available.";
         }
     }
+
+    /**
+     * Main method for testing the BookReader functionality.
+     * 
+     * @param args command-line arguments (not used)
+     */
     public static void main(String[] args) {
-        
+
     }
 }
 
