@@ -40,11 +40,6 @@ public class FillInTheBlank extends Question {
         this.correctAnswer = q.getWord().getTranslation();
     }
 
-    public FillInTheBlank(Question q) {
-        this.questionText = q.getQText();
-        this.correctAnswer = q.getWord().getTranslation();
-    }
-
     /**
      * Gets the correct answer for this question.
      *
