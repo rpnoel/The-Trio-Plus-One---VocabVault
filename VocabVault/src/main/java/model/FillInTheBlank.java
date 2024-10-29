@@ -1,5 +1,6 @@
 package model;
 
+import java.text.Normalizer;
 /**
  * Represents a fill-in-the-blank question where the user provides an answer
  * based on a given word's translation.
@@ -57,7 +58,7 @@ public class FillInTheBlank extends Question {
      */
     public boolean checkAnswer(String userAnswer) {
         if (userAnswer != null) {
-            if (userAnswer.equals(this.correctAnswer)) {
+            if (userAnswer.equalsIgnoreCase(this.correctAnswer)) {
                 return true;
             }
         }

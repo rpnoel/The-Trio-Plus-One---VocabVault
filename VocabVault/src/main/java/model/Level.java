@@ -12,7 +12,7 @@ public class Level {
      * The list of questions in this level.
      */
     private ArrayList<Question> questions;
-
+    private int score = 0;
     /**
      * The level number for this level.
      */
@@ -108,6 +108,23 @@ public class Level {
             questions.remove(temp);
             return temp;
         }
+    }
+
+    public void score(Boolean bool) {
+        if (bool) {
+            score++;
+            System.out.println("Correct! Great job!");
+        } else {
+            System.out.println("Incorrect. Try again!");
+        }
+    }
+
+    public int getScore() {
+        return this.score;
+    }
+
+    public int getQNum() {
+        return this.qNum;
     }
 
     /**

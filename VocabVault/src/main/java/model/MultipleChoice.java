@@ -56,22 +56,25 @@ public class MultipleChoice extends Question {
         return choices.get(correctAnswer); 
     }
 
-<<<<<<< HEAD
-    public String toString(){
-=======
     /**
      * Checks if the user's answer index matches the correct answer.
      * 
      * @param userAnswer the index of the answer chosen by the user
      * @return true if the user's answer matches the correct answer, false otherwise
      */
-    public boolean checkAnswer(int userAnswer) {
-        if (userAnswer < 5 || userAnswer > 0) {
-            if (userAnswer == this.correctAnswer) {
-                return true;
+    public boolean checkAnswer(String userAnswer) {
+        try {
+            int userInt = Integer.parseInt(userAnswer);
+            userInt = userInt - 1;
+            if (userInt < 5 || userInt > 0) {
+                if (userInt == this.correctAnswer) {
+                    return true;
+                }
             }
+            return false;
+        } catch (NumberFormatException e) {
+            return false;
         }
-        return false;
     }
 
     /**
@@ -81,7 +84,6 @@ public class MultipleChoice extends Question {
      */
     @Override
     public String toString() {
->>>>>>> e199ad8f4b5927fd09de0e91b2632ed39c935a4c
         return questionText + "\n\t1. " + choices.get(0) + "\n\t2. " + choices.get(1) + "\n\t3. " + choices.get(2) + "\n\t4. " + choices.get(3) + "\n";
     }
 }

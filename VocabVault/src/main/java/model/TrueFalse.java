@@ -17,10 +17,6 @@ public class TrueFalse extends Question {
      */
     private boolean correctAnswer;
 
-<<<<<<< HEAD
-    public TrueFalse(Word word, boolean correctAnswer) {
-        this.questionText = "True or False: ";
-=======
     /**
      * Constructs a TrueFalse question with the specified correct answer.
      *
@@ -28,7 +24,6 @@ public class TrueFalse extends Question {
      */
     public TrueFalse(boolean correctAnswer) {
         this.questionText = "True or False:";
->>>>>>> e199ad8f4b5927fd09de0e91b2632ed39c935a4c
         this.correctAnswer = correctAnswer;
     }
 
