@@ -5,8 +5,8 @@ public class TrueFalse extends Question {
     private String questionText;
     private boolean correctAnswer;
 
-    public TrueFalse(boolean correctAnswer) {
-        this.questionText = "True or False:";
+    public TrueFalse(Word word, boolean correctAnswer) {
+        this.questionText = "True or False: ";
         this.correctAnswer = correctAnswer;
     }
 

@@ -23,18 +23,7 @@ public class MultipleChoice extends Question {
         return choices.get(correctAnswer); 
     }
 
-    public boolean checkAnswer(int userAnswer) {
-        if (userAnswer < 5 || userAnswer > 0) {
-            if (userAnswer == this.correctAnswer) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     public String toString(){
         return questionText + "\n\t1. " + choices.get(0) + "\n\t2. " + choices.get(1) + "\n\t3. " + choices.get(2) + "\n\t4. " + choices.get(3) + "\n";
     }
-
-    
 }

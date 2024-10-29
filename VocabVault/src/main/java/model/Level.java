@@ -11,7 +11,6 @@ public class Level {
         this.levelNum = levelNum;
         this.questions = new ArrayList<>();
         populateQ(sourceBook);
-        System.out.println(getAllQuestions().toString());
     }
 
     private void populateQ(Book sourceBook) {
@@ -44,13 +43,21 @@ public class Level {
     public Question getQuestion(int questionType){
         // 1 - multiple choice, 2 - mathcing, 3 - fill in the blank - 4 - true or false
         if (questionType == 1) {
-            return questions.get(0);
+            Question temp = questions.get(0);
+            questions.remove(temp);
+            return temp;
         } else if (questionType == 2) {
-            return questions.get(1);
+            Question temp = questions.get(1);
+            questions.remove(temp);
+            return temp;
         } else if (questionType == 3) {
-            return questions.get(2);
+            Question temp = questions.get(2);
+            questions.remove(temp);
+            return temp;
         } else {
-            return questions.get(3);
+            Question temp = questions.get(4);
+            questions.remove(temp);
+            return temp;
         }
     }
 

@@ -11,17 +11,13 @@ public class FillInTheBlank extends Question {
         this.correctAnswer = word.getWordText();
     }
 
-    public String getCorrAnswer() {
-        return this.correctAnswer;
+    public FillInTheBlank(Question q) {
+        this.questionText = q.getQText();
+        this.correctAnswer = q.getWord().getTranslation();
     }
 
-    public boolean checkAnswer(String userAnswer) {
-        if (userAnswer != null) {
-            if (userAnswer.equals(this.correctAnswer)) {
-                return true;
-            }
-        }
-        return false;
+    public String getCorrAnswer() {
+        return this.correctAnswer;
     }
 
     @Override

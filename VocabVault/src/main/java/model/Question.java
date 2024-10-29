@@ -6,10 +6,15 @@ import java.util.Random;
 
 public abstract class Question {
     private String questionText;
+    private Word word;
     private ArrayList<String> choices;
 
     public String getQText() {
         return this.questionText;
+    }
+
+    public Word getWord() {
+        return this.word;
     }
 
     public ArrayList<String> getChoices() {
@@ -32,7 +37,7 @@ public abstract class Question {
     private ArrayList<String> generateChoices() {
         ArrayList<String> choices = new ArrayList<String>();
         try {
-            BufferedReader reader = new BufferedReader(new FileReader("VocabVault\\txt\\answerChoices.txt"));
+            BufferedReader reader = new BufferedReader(new FileReader("txt/answerChoices.txt"));
             String line = reader.readLine();
             while (line != null && choices.size() < 50) {
                 choices.add(line);
@@ -45,4 +50,20 @@ public abstract class Question {
         return choices;
     }
 
+    public boolean checkAnswer(int qType, String userAnswer) {
+        if (qType == 3) {
+            if (userAnswer == this.getWord().getTranslation()) {
+            return true;
+            }
+        } else if (qType == 2) {
+            int userInt = Integer.parseInt(userAnswer);
+            if (userInt < 5 || userInt > 0) {
+                if (this.getChoices().get(userInt).equals(userAnswer)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return false;
+    }
 }
