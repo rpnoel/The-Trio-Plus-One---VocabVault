@@ -5,6 +5,7 @@ import java.util.Map;
 
 public class UserProgressTracker {
     private User user;
+    private String language;
     private int totalQuestionsAnswered;
     private int correctAnswers;
     private Map<Question, Integer> missedQuestions;
@@ -14,6 +15,7 @@ public class UserProgressTracker {
         this.totalQuestionsAnswered = 0;
         this.correctAnswers = 0;
         this.missedQuestions = new HashMap<>();
+        this.language = "Spanish";
     }
 
     /**
@@ -65,6 +67,7 @@ public class UserProgressTracker {
         System.out.println("Correct Answers: " + correctAnswers);
         System.out.println("Accuracy: " + getAccuracy() + "%");
         System.out.println("Commonly Missed Questions:");
+        System.out.println("Current Language: Spanish");
         for (Question question : getCommonlyMissedQuestions()) {
             System.out.println("- " + question.getQText());
         }
