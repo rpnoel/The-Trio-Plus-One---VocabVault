@@ -30,6 +30,7 @@ public abstract class Question {
     public Word getWord() {
         return this.word;
     }
+    
 
     public ArrayList<String> getChoices() {
         ArrayList<String> allChoices = generateChoices();
@@ -58,7 +59,7 @@ public abstract class Question {
     private ArrayList<String> generateChoices() {
         ArrayList<String> choices = new ArrayList<String>();
         try {
-            BufferedReader reader = new BufferedReader(new FileReader("txt/answerChoices.txt"));
+            BufferedReader reader = new BufferedReader(new FileReader("VocabVault\\txt\\answerChoices.txt"));
             String line = reader.readLine();
             while (line != null && choices.size() < 50) {
                 choices.add(line);
@@ -71,5 +72,12 @@ public abstract class Question {
         return choices;
     }
 
+    @Override
+public String toString() {
+    return questionText; 
+}
+
+
     public abstract boolean checkAnswer(String userAnswer);
 }
+

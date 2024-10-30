@@ -7,7 +7,7 @@ import com.narriation.Narriator;
 /**
  * User Interface (UI) class that handles user interaction for the VocabVault application.
  * Provides options for login, account creation, studying, and checking progress.
- * Created by Connor Ilgenfritz.
+ * Created by Ryan Noel.
  */
 public class UI {
     
@@ -106,12 +106,22 @@ public class UI {
      * and plays the book narration if available.
      */
     public void study() {
-        System.out.println("Continue Reading?");
-        String Userchoice = scanner.nextLine();
-        if (Userchoice.equalsIgnoreCase("Yes")) {
+        System.out.println("Choose a study method:\n1. Read Story\n2. Study/Review Missed Words\n3. Review Missed Questions");
+        int Userchoice = scanner.nextInt();
+        if (Userchoice == 1) {
             BookReader read = new BookReader("VocabVault\\txt\\POLLYgoldilocksESP.txt");
             System.out.println(read);
             Narriator.playSound(read.book.getText());
+        } else if(Userchoice == 2){
+            System.out.println("Here are your missing words:\n");
+            facade.checkWords();
+            System.out.println("Would you like to test yourself with a review session?\nPress 1");
+            int Userchoice2 = scanner.nextInt();
+            if(Userchoice2 == 1){
+                facade.reviewTerms();
+            }
+        } else if(Userchoice == 3){
+            facade.checkQues();
         }
     }
 
@@ -120,6 +130,10 @@ public class UI {
      */
     public void play() {
         facade.play();
+    }
+
+    public void review(){
+        facade.reviewTerms();
     }
 
     /**

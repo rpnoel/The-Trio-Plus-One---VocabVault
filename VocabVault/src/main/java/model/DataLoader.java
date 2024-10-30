@@ -20,22 +20,45 @@ public class DataLoader extends DataConstants {
      * @return an ArrayList of User objects, or null if an error occurs
      */
     public static ArrayList<User> getUsers() {
-        ArrayList<User> users = new ArrayList<User>();
-        
+        ArrayList<User> users = new ArrayList<>();
+
         try {
             FileReader reader = new FileReader(USER_FILE_NAME);
             JSONParser parser = new JSONParser();
-            JSONArray usersJSON = (JSONArray) new JSONParser().parse(reader);
+            JSONArray usersJSON = (JSONArray) parser.parse(reader);
 
-            for (int i = 0; i < usersJSON.size(); i++) {
-                JSONObject userJSON = (JSONObject) usersJSON.get(i);
+            for (Object userObject : usersJSON) {
+                JSONObject userJSON = (JSONObject) userObject;
             
                 String userName = (String) userJSON.get(USERNAME);
                 String email = (String) userJSON.get(EMAIL);
                 String firstName = (String) userJSON.get(FIRST_NAME);
                 String lastName = (String) userJSON.get(LAST_NAME);
                 String password = (String) userJSON.get(PASSWORD);
-                users.add(new User(userName, email, firstName, lastName, password));
+
+                
+                User user = new User(userName, email, firstName, lastName, password);
+
+                
+                JSONArray missedQuestionsArray = (JSONArray) userJSON.get(MISSED_QUESTIONS);
+                ArrayList<String> missedQuestions = new ArrayList<>();
+                if (missedQuestionsArray != null) {
+                    for (Object word : missedQuestionsArray) {
+                        missedQuestions.add((String) word);
+                    }
+                }
+                user.setMissedQuestions(missedQuestions); 
+
+                JSONArray missedWordsArray = (JSONArray) userJSON.get(MISSED_WORDS);
+                ArrayList<String> missedWords = new ArrayList<>();
+                if (missedWordsArray != null) {
+                    for (Object word : missedWordsArray) {
+                        missedWords.add((String) word);
+                    }
+                }
+                user.setMissedWords(missedWords); 
+
+                users.add(user);
            }
 
             return users;
@@ -56,8 +79,12 @@ public class DataLoader extends DataConstants {
     public static void main(String[] args) {
         ArrayList<User> users = getUsers();
         for (User user : users) {
-            System.out.println(user.getUsername() + " " + user.getEmail());
+            ArrayList<String> missedWords = user.getMissedW();
+                for (String word : missedWords) {
+                    System.out.println(word); 
+            }
         }
     }
 }
+
 

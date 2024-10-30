@@ -11,7 +11,8 @@ public class User {
     private String firstName;
     private String lastName;
     private String password;
-    private Level level;
+    private ArrayList<String> missedQuestions;
+    private ArrayList<String> missedWords;
 
     public User(String username, String email, String firstName, String lastName, String password){
         this.userID = UUID.randomUUID();
@@ -20,6 +21,8 @@ public class User {
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
+        this.missedQuestions = new ArrayList<>();
+        this.missedWords = new ArrayList<>();
     }
 
     public User(UUID userID, String username, String email, String firstName, String lastName, String password){
@@ -29,6 +32,8 @@ public class User {
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
+        this.missedQuestions = new ArrayList<>();
+        this.missedWords = new ArrayList<>();
     }
 
     /**
@@ -113,6 +118,37 @@ public class User {
     public void setUserId(UUID userID){
         this.userID= userID;
     }
+
+    public void addMissedQ(String question) {
+        if (!missedQuestions.contains(question)) {
+            missedQuestions.add(question);
+        }
+    }
+
+    public ArrayList<String> getMissedQ() {
+        return missedQuestions;
+        }
+
+        public void addMissedW(String word) {
+            if (!missedWords.contains(word)) {
+                missedWords.add(word);
+            }
+        }
+    
+        public ArrayList<String> getMissedW() {
+            return missedWords;
+            }
+
+        public void setMissedWords(ArrayList<String> missedWords) {
+            this.missedWords = missedWords;
+        }
+        
+        public void setMissedQuestions(ArrayList<String> missedQuestions) {
+            this.missedQuestions = missedQuestions;
+        }
+    
+
+    
 
 
 }

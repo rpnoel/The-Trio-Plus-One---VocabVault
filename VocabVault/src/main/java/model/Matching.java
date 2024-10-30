@@ -3,6 +3,7 @@ package model;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Random;
 
 /**
@@ -59,18 +60,20 @@ public class Matching extends Question {
     }
     //generates specific choices from answerChoicesESP.txt instead of answerChoices.txt
     private ArrayList<String> generateChoices() {
-        ArrayList<String> choices = new ArrayList<String>();
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader("txt/answerChoicesESP.txt"));
-            String line = reader.readLine();
-            while (line != null && choices.size() < 50) {
-                choices.add(line);
-                line = reader.readLine();
+        HashSet<String> uniqueChoices = new HashSet<>(); 
+        ArrayList<String> choices = new ArrayList<>(); 
+        try (BufferedReader reader = new BufferedReader(new FileReader("VocabVault\\txt\\answerChoicesESP.txt"))) {
+            String line;
+            while ((line = reader.readLine()) != null && uniqueChoices.size() < 50) { 
+                uniqueChoices.add(line); 
             }
         } catch (Exception e) {
             System.out.println(e);
             return null;
         }
+    
+        choices.addAll(uniqueChoices);
+        
         return choices;
     }
 

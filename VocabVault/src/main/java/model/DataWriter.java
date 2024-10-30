@@ -46,6 +46,12 @@ public class DataWriter extends DataConstants {
         userDetails.put(FIRST_NAME, user.getFirstName());
         userDetails.put(LAST_NAME, user.getLastName());
         userDetails.put(PASSWORD, user.getPassword());
+        JSONArray missedQuestionsArray = new JSONArray();
+        missedQuestionsArray.addAll(user.getMissedQ());
+        userDetails.put(MISSED_QUESTIONS, missedQuestionsArray);
+        JSONArray missedWordsArray = new JSONArray();
+        missedWordsArray.addAll(user.getMissedW());
+        userDetails.put(MISSED_WORDS, missedWordsArray);
         return userDetails;
     }
 }

@@ -7,4 +7,6 @@ public abstract class DataConstants {
     protected static final String FIRST_NAME = "firstname";
     protected static final String LAST_NAME = "lastname";
     protected static final String PASSWORD = "password";
+    protected static final String MISSED_QUESTIONS = "missedQuestions";
+    protected static final String MISSED_WORDS = "missedWords";
 }
