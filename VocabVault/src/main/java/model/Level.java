@@ -47,7 +47,7 @@ public class Level {
         Iterator<Word> iterator = vocabWords.iterator();
         while (iterator.hasNext()) {
             Word word = iterator.next();
-            questions.add(generateQ(word, true, word.getTranslation()));
+            questions.add(generateQ(word));
             iterator.remove();
         }
     }
@@ -61,16 +61,16 @@ public class Level {
      * @param correctanswer the correct answer text for Matching question types
      * @return the generated question
      */
-    private Question generateQ(Word word, boolean truefalse, String correctanswer) {
+    private Question generateQ(Word word) {
         qNum++;
-        if (qNum % 4 == 0) {
-            return new TrueFalse(truefalse);
-        } else if (qNum % 3 == 0) {
-            return new FillInTheBlank(word);
-        } else if (qNum % 2 == 0) {
-            return new Matching(word, correctanswer);
-        } else {
+        if (qNum == 1 || qNum == 5 || qNum == 9) {
             return new MultipleChoice(word);
+        } else if (qNum == 2 || qNum == 6 || qNum == 10) {
+            return new Matching(word);
+        } else if (qNum == 3 || qNum == 7 || qNum == 11) {
+            return new FillInTheBlank(word);
+        } else {
+            return new TrueFalse(word);
         }
     }
 

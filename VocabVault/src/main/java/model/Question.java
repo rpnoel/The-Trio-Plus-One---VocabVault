@@ -36,11 +36,11 @@ public abstract class Question {
         Random rand = new Random();
         this.choices = new ArrayList<String>();
         
-        if (allChoices.size() < 4) {
+        if (allChoices.size() < 3) {
             return allChoices; 
         }
 
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 3; i++) {
             int index = rand.nextInt(allChoices.size());
             choices.add(allChoices.get(index));
             allChoices.remove(index); // Ensure no duplicate choices

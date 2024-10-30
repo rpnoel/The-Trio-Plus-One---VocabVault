@@ -33,7 +33,7 @@ public class MultipleChoice extends Question {
      */
     public MultipleChoice(Word word) {
         this.questionText = "Choose the correct translation of " + word.getWordText() + ".";
-        this.correctAnswer = (int) Math.random() * 4;
+        this.correctAnswer = (int) (Math.random() * 3) + 1;
         this.choices = getChoices();
         choices.add(correctAnswer, word.getTranslation());
     }

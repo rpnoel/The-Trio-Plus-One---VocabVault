@@ -1,6 +1,9 @@
 package model;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Represents a matching question, where the user must match a word to its correct translation.
@@ -17,7 +20,9 @@ public class Matching extends Question {
     /**
      * The correct answer for the matching question.
      */
-    private String correctAnswer;
+    private int correctAnswer;
+    private ArrayList<String> choices;
+    private String wordText;
 
     /**
      * Constructs a Matching question with the specified word and correct answer.
@@ -25,9 +30,48 @@ public class Matching extends Question {
      * @param word the Word object containing the word to be matched
      * @param correctAnswer the correct answer (translation) for the matching question
      */
-    public Matching(Word word, String correctAnswer) {
-        this.questionText = "Match the following word with the correct translation: " + word.getWordText();
-        this.correctAnswer = correctAnswer;
+    public Matching(Word word) {
+        this.wordText = word.getWordText();
+        this.questionText = "Match the English word to its Spanish translation: " + word.getTranslation();
+        this.correctAnswer = (int) (Math.random() * 3) + 1;
+        this.choices = this.generateChoices();
+        choices.add(correctAnswer, word.getWordText()); 
+    }
+
+    @Override
+    public ArrayList<String> getChoices() {
+        ArrayList<String> allChoices = this.generateChoices();
+        allChoices.remove(this.getWordText());
+        Random rand = new Random();
+        this.choices = new ArrayList<String>();
+        
+        if (allChoices.size() < 3) {
+            return allChoices; 
+        }
+
+        for (int i = 0; i < 3; i++) {
+            int index = rand.nextInt(allChoices.size());
+            choices.add(allChoices.get(index));
+            allChoices.remove(index); // Ensure no duplicate choices
+        }
+
+        return choices;
+    }
+    //generates specific choices from answerChoicesESP.txt instead of answerChoices.txt
+    private ArrayList<String> generateChoices() {
+        ArrayList<String> choices = new ArrayList<String>();
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("txt/answerChoicesESP.txt"));
+            String line = reader.readLine();
+            while (line != null && choices.size() < 50) {
+                choices.add(line);
+                line = reader.readLine();
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+            return null;
+        }
+        return choices;
     }
 
     /**
@@ -37,7 +81,18 @@ public class Matching extends Question {
      * @return true if the user's answer matches the correct answer, false otherwise
      */
     public boolean checkAnswer(String userAnswer) {
-        return userAnswer.equalsIgnoreCase(this.correctAnswer);
+        try {
+            int userInt = Integer.parseInt(userAnswer);
+            userInt = userInt - 1;
+            if (userInt < 5 || userInt > 0) {
+                if (userInt == this.correctAnswer) {
+                    return true;
+                }
+            }
+            return false;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
 
     /**
@@ -45,7 +100,7 @@ public class Matching extends Question {
      *
      * @return the correct answer
      */
-    public String getCorrectAnswer() {
+    public int getCorrectAnswer() {
         return this.correctAnswer;
     }
 
@@ -58,6 +113,10 @@ public class Matching extends Question {
         return this.questionText;
     }
 
+    public String getWordText() {
+        return this.wordText;
+    }
+
     /**
      * Returns a string representation of the matching question.
      *
@@ -65,7 +124,7 @@ public class Matching extends Question {
      */
     @Override
     public String toString() {
-        return "Question: " + questionText;
+        return questionText + "\n\t1. " + choices.get(0) + "\n\t2. " + choices.get(1) + "\n\t3. " + choices.get(2) + "\n\t4. " + choices.get(3) + "\n";
     }
 }
 

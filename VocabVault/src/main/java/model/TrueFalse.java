@@ -1,4 +1,6 @@
 package model;
+import java.util.Random;
+import java.util.ArrayList;
 
 /**
  * Represents a true-or-false question where the user must determine the truthfulness of a statement.
@@ -22,9 +24,34 @@ public class TrueFalse extends Question {
      *
      * @param correctAnswer the correct answer for the question
      */
-    public TrueFalse(boolean correctAnswer) {
-        this.questionText = "True or False:";
-        this.correctAnswer = correctAnswer;
+    public TrueFalse(Word word) {
+        Random random = new Random();
+        int rand = random.nextInt(2);
+        if (rand == 0) {
+            this.questionText = "True or False: " + word.getWordText() + " means " + word.getTranslation() + ". ";
+            this.correctAnswer = true;
+            } else {
+            ArrayList<String> choices = this.getChoices();
+            this.questionText = "True or False: " + word.getWordText() + " means " + choices.get(random.nextInt(3));
+            this.correctAnswer = false;
+        }
+    }
+
+    public boolean checkAnswer(String userAnswer) {
+        boolean userBool;
+        if (userAnswer.equalsIgnoreCase("true") || userAnswer.equalsIgnoreCase("t")) {
+            userBool = true;
+        } else if (userAnswer.equalsIgnoreCase("false") || userAnswer.equalsIgnoreCase("f")) {
+            userBool = false;
+        } else {
+            System.out.println("Incorrect answer format. Wrong!");
+            return false;
+        }
+        if (userBool == this.correctAnswer) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -42,22 +69,7 @@ public class TrueFalse extends Question {
      * @param userAnswer the answer provided by the user
      * @return true if the user's answer matches the correct answer, false otherwise
      */
-    public boolean checkAnswer(String userAnswer) {
-        return userAnswer.equals(this.correctAnswer);
-    }
-
-    /**
-     * Displays whether the user's answer was correct or incorrect.
-     *
-     * @param userAnswer the answer provided by the user
-     */
-    public void correctAnswer(String userAnswer) {
-        if (checkAnswer(userAnswer)) {
-            System.out.println("The answer was True");
-        } else {
-            System.out.println("The answer was False");
-        }
-    }
+    
 
     /**
      * Returns a string representation of the true-or-false question.

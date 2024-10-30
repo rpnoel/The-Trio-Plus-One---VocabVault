@@ -8,12 +8,10 @@ public class User {
     private UUID userID;
     private String username;
     private String email;
-    private Rank rank;
-    private int points;
-    private StoryMode userProgress;
     private String firstName;
     private String lastName;
     private String password;
+    private Level level;
 
     public User(String username, String email, String firstName, String lastName, String password){
         this.userID = UUID.randomUUID();
@@ -43,15 +41,6 @@ public class User {
     }
 
     /**
-     * Gets the rank of the user.
-     *
-     * @return The user's current rank.
-     */
-    public Rank getRank() {
-        return rank;
-    }
-
-    /**
      * Gets the email of the user.
      *
      * @return The user's email.
@@ -67,15 +56,6 @@ public class User {
      */
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    /**
-     * Adds points to the user's total points.
-     *
-     * @param points The number of points to add.
-     */
-    public void addPoints(int points) {
-        this.points += points;
     }
 
     /**
