@@ -1,0 +1,17 @@
+[
+    {
+        "userID": 93024822,
+        "username":"mason_man21", 
+        "rank": [{
+            "type": "SILVER",
+            "ranking": 49
+        }]
+    },{
+        "userID": 83939822,
+        "username":"kitKatLover", 
+        "rank": [{
+            "type": "GOLD",
+            "ranking": 13
+        }]
+    }
+]
