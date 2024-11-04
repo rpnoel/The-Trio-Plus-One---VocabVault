@@ -1,6 +1,6 @@
 package model;
 public abstract class DataConstants {
-    protected static final String USER_FILE_NAME = "VocabVault\\src\\main\\java\\data\\user.json";
+    protected static final String USER_FILE_NAME = "/user.json";
     protected static final String USER_FILE_NAME_JSON = "VocabVault\\src\\test\\java\\data\\user.json";
     protected static final String USER_ID = "userID";
     protected static final String USERNAME = "username";
@@ -19,5 +19,6 @@ public abstract class DataConstants {
         } 
         return false;
         }
+        
     }
 
