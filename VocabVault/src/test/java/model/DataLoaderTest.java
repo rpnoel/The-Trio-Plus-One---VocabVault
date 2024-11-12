@@ -25,8 +25,14 @@ public class DataLoaderTest {
     }
 
     @Test
-    public void TestUserCount(){
+    public void testUserCount(){
         int expectedUserCount = 3; 
         ArrayList<User> users = userList.getUsers(); 
+    }
+
+    @Test
+    public void testGetUsers(){
+        DataLoader dataLoader = new DataLoader();
+        dataLoader.getUsers();
     }
 }
